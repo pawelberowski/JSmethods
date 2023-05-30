@@ -179,7 +179,91 @@ console.log(prefixStringWithNegative('happy')); // unhappy
 console.log(prefixStringWithNegative('productive')); // unproductive
 console.log(prefixStringWithNegative('fair')); // unfair
 
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~ Katas ~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+console.log('~~~~~~~~~~~~ Sum of positive with forEach ~~~~~~~~~~~~~~')
+function positiveSum(arr) {
+    let count = 0;
+    arr.forEach(function(num){
+        if (num > 0) {
+            return count += num;
+        }
+    })
+    return count;
+}
+console.log(positiveSum([1,2,3,4,5])) // 15
+console.log(positiveSum([])) // 0
+console.log(positiveSum([-1,2,3,4,-5])) // 9
+
+console.log('~~~~~~~~~~~~ Count sheep with filter ~~~~~~~~~~~~~~')
+function countSheeps(arrayOfSheep) {
+    return arrayOfSheep.filter(function(sheep) {return sheep === true}).length;
+}
+
+const sheep = [true,  true,  true,  false,
+    true,  true,  true,  true ,
+    true,  false, true,  false,
+    true,  false, false, true ,
+    true,  true,  true,  true ,
+    false, false, true,  true ];
+
+console.log(countSheeps(sheep)) // 17
+
+console.log('~~~~~~~~~~~~ A needle with findIndex ~~~~~~~~~~~~~~')
+
+function findNeedle(haystack) {
+    const needlePosition = haystack.findIndex(function (element) {
+        return element === 'needle';
+    })
+    return `found the needle at position ${needlePosition}`;
+}
+const haystack_1 = ['3', '123124234', undefined, 'needle', 'world', 'hay', 2, '3', true, false];
+const haystack_2 = ['283497238987234', 'a dog', 'a cat', 'some random junk', 'a piece of hay', 'needle', 'something somebody lost a while ago'];
+const haystack_3 = [1,2,3,4,5,6,7,8,8,7,5,4,3,4,5,6,67,5,5,3,3,4,2,34,234,23,4,234,324,324,'needle',1,2,3,4,5,5,6,5,4,32,3,45,54];
+
+console.log(findNeedle(haystack_1)); // 'found the needle at position 3'
+console.log(findNeedle(haystack_2)); // 'found the needle at position 5'
+console.log(findNeedle(haystack_3)); // 'found the needle at position 30'
+
+console.log('~~~~~~~~~~~~ Lost without a map (with map)~~~~~~~~~~~~~~')
+
+function maps(x){
+    return x.map(function(a) {
+        return a * 2;
+    })
+}
+
+console.log(maps([4, 1, 1, 1, 4])); // [8, 2, 2, 2, 8]
+console.log(maps([1, 2, 3])); // [2, 4, 6]
+
+console.log('~~~~~~~~~~~~ Invert values ~~~~~~~~~~~~~~')
+
+function invert(array) {
+    return array.map(function(element){
+        return -element;
+    })
+}
+
+console.log(invert([1,-2,3,-4,5])); // [-1,2,-3,4,-5]
+console.log(invert([0])); // [0]
+console.log(invert([])); // []
+
+console.log('~~~~~~~~~~~~ Get the mean of an array with forEach ~~~~~~~~~~~~~~')
+
+function getAverage(marks){
+    let sum = 0;
+    marks.forEach(function(mark) {
+        sum += mark;
+    })
+    return Math.floor(sum / marks.length);
+}
+
+console.log(getAverage([2,2,2,2])); // 2
+console.log(getAverage([1,2,3,4,5,])); // 3
+console.log(getAverage([1,1,1,1,1,1,1,2])); // 1
+
 console.log('~~~~~~~~~~~~ Wait ~~~~~~~~~~~~~~')
 console.log('~~~~~~~~~~~~ For ~~~~~~~~~~~~~~')
 console.log('~~~~~~~~~~~~ It ~~~~~~~~~~~~~~')
-executeAfterFiveSeconds(function(){return console.log('~~~~~~~~~~~~ The end ~~~~~~~~~~~~~~')})
+executeAfterFiveSeconds(function(){
+    return console.log('~~~~~~~~~~~~ The end ~~~~~~~~~~~~~~')
+})
