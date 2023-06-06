@@ -55,9 +55,9 @@ console.log(isStringInArray(['Onion', 'Cabbage'], 'Potato')); // false
 
 console.log('~~~~~~~~~~~~ ForEach from scratch ~~~~~~~~~~~~~~')
 
-function forEach(array, someFunction) {
+function forEach(array, callback) {
     for (let i = 0; i < array.length; i++) {
-        someFunction(array[i], i);
+        callback(array[i], i);
     }
 }
 
@@ -86,8 +86,8 @@ forEach(
 console.log('~~~~~~~~~~~~~~~~~~ Additional exercises ~~~~~~~~~~~~~~~~~~~~')
 console.log('~~~~~~~~~~~~ Execute after five seconds ~~~~~~~~~~~~~~')
 
-function executeAfterFiveSeconds(aFunction) {
-    return setTimeout(aFunction, 5000);
+function executeAfterFiveSeconds(callback) {
+    return setTimeout(callback, 5000);
 }
 
 function sayHello() {
@@ -196,7 +196,10 @@ console.log(positiveSum([-1,2,3,4,-5])) // 9
 
 console.log('~~~~~~~~~~~~ Count sheep with filter ~~~~~~~~~~~~~~')
 function countSheeps(arrayOfSheep) {
-    return arrayOfSheep.filter(function(sheep) {return sheep === true}).length;
+    const sheep = arrayOfSheep.filter(function(value) {
+        return value === true;
+    });
+    return sheep.length;
 }
 
 const sheep = [true,  true,  true,  false,
@@ -226,9 +229,9 @@ console.log(findNeedle(haystack_3)); // 'found the needle at position 30'
 
 console.log('~~~~~~~~~~~~ Lost without a map (with map)~~~~~~~~~~~~~~')
 
-function maps(x){
-    return x.map(function(a) {
-        return a * 2;
+function maps(numbers){
+    return numbers.map(function(number) {
+        return number * 2;
     })
 }
 
@@ -239,7 +242,7 @@ console.log('~~~~~~~~~~~~ Invert values ~~~~~~~~~~~~~~')
 
 function invert(array) {
     return array.map(function(element){
-        return -element;
+        return -1 * element;
     })
 }
 
